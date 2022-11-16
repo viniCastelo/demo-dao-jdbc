@@ -1,8 +1,10 @@
 package model.entities;
 
-import java.sql.Date;
+import java.io.Serializable;
+import java.util.Date;
+import java.util.Objects;
 
-public class Seller {
+public class Seller implements Serializable {
 
     private Integer id;
     private String name;
@@ -71,14 +73,27 @@ public class Seller {
     }
 
     @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Seller seller = (Seller) o;
+        return Objects.equals(id, seller.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
+
+    @Override
     public String toString() {
-        return "Seller{" +
+        return "Seller {" +
                 "id:" + id +
                 ", name: '" + name + '\'' +
                 ", email: '" + email + '\'' +
-                ", birthDate:" + birthDate +
-                ", baseSalary:" + baseSalary +
-                ", department: '" + department.getName() + '\'' +
+                ", birthDate: " + birthDate +
+                ", baseSalary: " + baseSalary +
+                ", " + department +
                 '}';
     }
 }
