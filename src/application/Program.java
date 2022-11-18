@@ -1,6 +1,7 @@
 package application;
 
 import model.dao.DaoFactory;
+import model.dao.DepartmentDao;
 import model.dao.SellerDao;
 import model.entities.Department;
 import model.entities.Seller;
@@ -16,9 +17,12 @@ public class Program {
     public static void main(String[] args) throws ParseException {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
-        SellerDao sellerDao = DaoFactory.createSellerDao();
 
-        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        // Seller operations:
+        /*
+           SellerDao sellerDao = DaoFactory.createSellerDao();
+           SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+         */
 
         // FindById:
         /*
@@ -115,6 +119,18 @@ public class Program {
 
             System.out.println("Vendedor deletado com sucesso!");
         */
+
+        // Department operations:
+
+        DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
+
+        // FindById:
+
+        System.out.print("Informe o código do departamento: ");
+        Department dp = departmentDao.findById(sc.nextInt());
+        sc.nextLine();
+        System.out.println();
+        System.out.println(dp);
 
         sc.close();
     }
