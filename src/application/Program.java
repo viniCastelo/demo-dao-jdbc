@@ -127,6 +127,7 @@ public class Program {
 
         // FindById:
         /*
+        System.out.printLn("TESTE 01 - Department findById:");
         System.out.print("Informe o código do departamento: ");
         Department dp = departmentDao.findById(sc.nextInt());
         sc.nextLine();
@@ -154,6 +155,7 @@ public class Program {
         */
 
         // Delete:
+        /*
         System.out.println("TESTE 03 - Department Delete:");
         System.out.println();
         System.out.print("Digite o código do departamento: ");
@@ -162,6 +164,27 @@ public class Program {
         System.out.println("Departamento excluido!");
         List<Department> list = departmentDao.findAll();
         System.out.println();
+        list.forEach(System.out::println);
+        */
+
+        // Update:
+
+        System.out.println("TESTE 05 - Department Update:");
+        System.out.println();
+        List<Department> list = departmentDao.findAll();
+        list.forEach(System.out::println);
+        System.out.println();
+        System.out.print("Informe o código do departamento: ");
+        Integer id = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Informe o nome do departamento: ");
+        Department obj = new Department(id, sc.nextLine());
+        departmentDao.update(obj);
+        list = departmentDao.findAll();
+        System.out.println();
+        System.out.println("Departamento (" + obj.getId() + "-" + obj.getName() + ") Alterado com sucesso:");
+        System.out.println();
+        System.out.println("Lista atualizada:");
         list.forEach(System.out::println);
 
         sc.close();
