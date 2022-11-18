@@ -34,7 +34,7 @@ public class Program {
         System.out.println(seller);
 
         System.out.println();
-*/
+    */
 
         // FindByDepartment:
         /*
@@ -48,7 +48,7 @@ public class Program {
         list.forEach(System.out::println);
 
         System.out.println();
-*/
+    */
 
         // FindAll:
         /*
@@ -76,6 +76,44 @@ public class Program {
             Department dp = new Department(DepartmentId);
             Seller sl = new Seller(null, name, email, birthDate, baseSalary, dp);
             sellerDao.insert(sl);
+        */
+
+        // Update:
+        /*
+            System.out.println("=== TESTE 05 - Seller Update ===");
+            System.out.print("Digite o código do vendedor: ");
+            Integer id = sc.nextInt();
+            sc.nextLine();
+            System.out.print("Digite o nome do vendedor: ");
+            String name = sc.nextLine();
+            System.out.print("Digite o e-mail: ");
+            String email = sc.nextLine();
+            System.out.print("Digite a data de nascimento (dd/mm/aaaa): ");
+            Date birthDate = new Date(sdf.parse(sc.nextLine()).getTime());
+            System.out.print("Digite o salário base: ");
+            Double baseSalary = sc.nextDouble();
+            System.out.print("Digite o código do departamento: ");
+            Integer DepartmentId = sc.nextInt();
+            Department dp = new Department(DepartmentId);
+            Seller sl = new Seller(id, name, email, birthDate, baseSalary, dp);
+            sellerDao.update(sl);
+
+            System.out.println();
+
+            System.out.println("Os dados do vendedor de código (" + sl.getId() + ") foi alterado!");
+    */
+
+        // Delete:
+        /*
+            System.out.println("=== TESTE 05 - Seller Delete ===");
+            System.out.print("Digite o código do vendedor: ");
+            Integer id = sc.nextInt();
+            sc.nextLine();
+            sellerDao.deleteById(id);
+
+            System.out.println();
+
+            System.out.println("Vendedor deletado com sucesso!");
         */
 
         sc.close();
