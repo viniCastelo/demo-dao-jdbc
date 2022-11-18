@@ -153,6 +153,17 @@ public class Program {
         System.out.println(obj);
         */
 
+        // Delete:
+        System.out.println("TESTE 03 - Department Delete:");
+        System.out.println();
+        System.out.print("Digite o código do departamento: ");
+        departmentDao.deleteById(sc.nextInt());
+        sc.nextLine();
+        System.out.println("Departamento excluido!");
+        List<Department> list = departmentDao.findAll();
+        System.out.println();
+        list.forEach(System.out::println);
+
         sc.close();
     }
 }
