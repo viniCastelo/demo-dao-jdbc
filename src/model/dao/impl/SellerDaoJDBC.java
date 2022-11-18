@@ -21,7 +21,6 @@ public class SellerDaoJDBC implements SellerDao {
     @Override
     public void insert(Seller obj) {
         PreparedStatement ps = null;
-        // ResultSet rs = null;
         try {
             ps = conn.prepareStatement(
             "INSERT INTO seller " +
@@ -37,8 +36,7 @@ public class SellerDaoJDBC implements SellerDao {
             if (rowsAffected > 0){
                 ResultSet rs = ps.getGeneratedKeys();
                 if (rs.next()){
-                    int id = rs.getInt(1);
-                    obj.setId(id);
+                    obj.setId(rs.getInt(1));
                 }
                 DB.closeResultSet(rs);
             }

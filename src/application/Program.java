@@ -18,11 +18,11 @@ public class Program {
         Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        // Seller operations:
+        // SELLER OPERATIONS:
         /*
-           SellerDao sellerDao = DaoFactory.createSellerDao();
-           SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-         */
+        SellerDao sellerDao = DaoFactory.createSellerDao();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        */
 
         // FindById:
         /*
@@ -38,7 +38,7 @@ public class Program {
         System.out.println(seller);
 
         System.out.println();
-    */
+        */
 
         // FindByDepartment:
         /*
@@ -52,85 +52,106 @@ public class Program {
         list.forEach(System.out::println);
 
         System.out.println();
-    */
+        */
 
         // FindAll:
         /*
-            System.out.println("=== TESTE 03 - Seller FindAll ===");
-            list = sellerDao.findAll();
-            System.out.println();
-            list.forEach(System.out::println);
+        System.out.println("=== TESTE 03 - Seller FindAll ===");
+        list = sellerDao.findAll();
+        System.out.println();
+        list.forEach(System.out::println);
 
-            System.out.println();
+        System.out.println();
         */
 
         // Insert:
         /*
-            System.out.println("=== TESTE 04 - Seller Insert ===");
-            System.out.print("Digite o nome do vendedor: ");
-            String name = sc.nextLine();
-            System.out.print("Digite o e-mail: ");
-            String email = sc.nextLine();
-            System.out.print("Digite a data de nascimento (dd/mm/aaaa): ");
-            Date birthDate = new Date(sdf.parse(sc.nextLine()).getTime());
-            System.out.print("Digite o salário base: ");
-            Double baseSalary = sc.nextDouble();
-            System.out.print("Digite o código do departamento: ");
-            Integer DepartmentId = sc.nextInt();
-            Department dp = new Department(DepartmentId);
-            Seller sl = new Seller(null, name, email, birthDate, baseSalary, dp);
-            sellerDao.insert(sl);
+        System.out.println("=== TESTE 04 - Seller Insert ===");
+        System.out.print("Digite o nome do vendedor: ");
+        String name = sc.nextLine();
+        System.out.print("Digite o e-mail: ");
+        String email = sc.nextLine();
+        System.out.print("Digite a data de nascimento (dd/mm/aaaa): ");
+        Date birthDate = new Date(sdf.parse(sc.nextLine()).getTime());
+        System.out.print("Digite o salário base: ");
+        Double baseSalary = sc.nextDouble();
+        System.out.print("Digite o código do departamento: ");
+        Integer DepartmentId = sc.nextInt();
+        Department dp = new Department(DepartmentId);
+        Seller sl = new Seller(null, name, email, birthDate, baseSalary, dp);
+        sellerDao.insert(sl);
         */
 
         // Update:
         /*
-            System.out.println("=== TESTE 05 - Seller Update ===");
-            System.out.print("Digite o código do vendedor: ");
-            Integer id = sc.nextInt();
-            sc.nextLine();
-            System.out.print("Digite o nome do vendedor: ");
-            String name = sc.nextLine();
-            System.out.print("Digite o e-mail: ");
-            String email = sc.nextLine();
-            System.out.print("Digite a data de nascimento (dd/mm/aaaa): ");
-            Date birthDate = new Date(sdf.parse(sc.nextLine()).getTime());
-            System.out.print("Digite o salário base: ");
-            Double baseSalary = sc.nextDouble();
-            System.out.print("Digite o código do departamento: ");
-            Integer DepartmentId = sc.nextInt();
-            Department dp = new Department(DepartmentId);
-            Seller sl = new Seller(id, name, email, birthDate, baseSalary, dp);
-            sellerDao.update(sl);
+        System.out.println("=== TESTE 05 - Seller Update ===");
+        System.out.print("Digite o código do vendedor: ");
+        Integer id = sc.nextInt();
+        sc.nextLine();
+        System.out.print("Digite o nome do vendedor: ");
+        String name = sc.nextLine();
+        System.out.print("Digite o e-mail: ");
+        String email = sc.nextLine();
+        System.out.print("Digite a data de nascimento (dd/mm/aaaa): ");
+        Date birthDate = new Date(sdf.parse(sc.nextLine()).getTime());
+        System.out.print("Digite o salário base: ");
+        Double baseSalary = sc.nextDouble();
+        System.out.print("Digite o código do departamento: ");
+        Integer DepartmentId = sc.nextInt();
+        Department dp = new Department(DepartmentId);
+        Seller sl = new Seller(id, name, email, birthDate, baseSalary, dp);
+        sellerDao.update(sl);
 
-            System.out.println();
+        System.out.println();
 
-            System.out.println("Os dados do vendedor de código (" + sl.getId() + ") foi alterado!");
+        System.out.println("Os dados do vendedor de código (" + sl.getId() + ") foi alterado!");
     */
 
         // Delete:
         /*
-            System.out.println("=== TESTE 05 - Seller Delete ===");
-            System.out.print("Digite o código do vendedor: ");
-            Integer id = sc.nextInt();
-            sc.nextLine();
-            sellerDao.deleteById(id);
+        System.out.println("=== TESTE 05 - Seller Delete ===");
+        System.out.print("Digite o código do vendedor: ");
+        Integer id = sc.nextInt();
+        sc.nextLine();
+        sellerDao.deleteById(id);
 
-            System.out.println();
+        System.out.println();
 
-            System.out.println("Vendedor deletado com sucesso!");
+        System.out.println("Vendedor deletado com sucesso!");
         */
 
-        // Department operations:
+        // DEPARTMENT OPERATIONS:
 
         DepartmentDao departmentDao = DaoFactory.createDepartmentDao();
 
-        // FindById:
 
+        // FindById:
+        /*
         System.out.print("Informe o código do departamento: ");
         Department dp = departmentDao.findById(sc.nextInt());
         sc.nextLine();
         System.out.println();
         System.out.println(dp);
+        */
+
+        // FindAll:
+        /*
+        System.out.println("TESTE 02 - Department findAll:");
+        System.out.println();
+        List<Department> list = departmentDao.findAll();
+        list.forEach(System.out::println);
+        */
+
+        // Insert:
+        /*
+        System.out.println("TESTE 03 - Department Insert:");
+        System.out.println();
+        System.out.print("Digite o nome do novo departamento: ");
+        Department obj = new Department(sc.nextLine());
+        departmentDao.insert(obj);
+        System.out.println("Departamento criado com sucesso:");
+        System.out.println(obj);
+        */
 
         sc.close();
     }
